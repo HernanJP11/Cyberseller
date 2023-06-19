@@ -51,3 +51,14 @@ foreign key (idpedido) references pedido (idpedido),
 foreign key (idproducto) references producto (idproducto)
 );
 
+-->crear tabla usuario
+create table usuario(
+idusuario serial primary key,
+nombre varchar(100)not null,
+correo varchar(200) unique,
+contraseña varchar(50),
+direccion varchar(100),
+telefono varchar (20),
+rol varchar (20) check (rol in('Gerente','Administrador') ),
+nivel_de_acceso varchar(20) check(nivel_de_acceso in('Alto','Modificacion','Eliminacion'))	
+);
